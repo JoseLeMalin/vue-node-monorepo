@@ -1,1 +1,4 @@
 node_modules/
+packages/server/dist
+packages/server/dist/app.controller.js.map
+packages/server/dist/app.module.js.map

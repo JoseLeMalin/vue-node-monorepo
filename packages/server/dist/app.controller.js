@@ -16,12 +16,23 @@ let AppController = exports.AppController = class AppController {
     constructor(appService) {
         this.appService = appService;
     }
+    create() {
+        return this.appService.postHello();
+    }
     getHello() {
         return this.appService.getHello();
     }
 };
 __decorate([
+    (0, common_1.Post)(),
+    (0, common_1.HttpCode)(204),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", String)
+], AppController.prototype, "create", null);
+__decorate([
     (0, common_1.Get)(),
+    (0, common_1.Redirect)('https://docs.nestjs.com', 302),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", String)
