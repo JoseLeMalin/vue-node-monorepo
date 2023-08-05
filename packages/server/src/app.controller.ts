@@ -5,9 +5,9 @@ import {
   HttpCode,
   Post,
   Redirect,
-} from '@nestjs/common';
-import { AppService } from './app.service';
-import { CreateCatDto } from './data-transfer-objects/test-SHE-dto';
+} from "@nestjs/common";
+import { AppService } from "./app.service";
+import { CreateCatDto } from "./data-transfer-objects/test-SHE-dto";
 
 @Controller()
 export class AppController {

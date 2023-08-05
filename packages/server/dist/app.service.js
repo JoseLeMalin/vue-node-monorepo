@@ -12,7 +12,8 @@ let AppService = exports.AppService = class AppService {
     getHello() {
         return 'Hello World!';
     }
-    postHello() {
+    postHello(createCatDto) {
+        const test = createCatDto;
         return 'Posted Hello World!';
     }
 };
