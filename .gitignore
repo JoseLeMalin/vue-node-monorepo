@@ -1,4 +1,43 @@
 node_modules/
 packages/server/dist
-packages/server/dist/app.controller.js.map
-packages/server/dist/app.module.js.map
+packages/server/node_modules
+
+
+packages/client/.DS_Store
+packages/client/.thumbs.db
+packages/client/node_modules
+
+# Quasar core related directories
+packages/client/.quasar
+packages/client/dist
+packages/client/quasar.config.*.temporary.compiled*
+
+# Cordova related directories and files
+packages/client/src-cordova/node_modules
+packages/client/src-cordova/platforms
+packages/client/src-cordova/plugins
+packages/client/src-cordova/www
+
+# Capacitor related directories and files
+packages/client/src-capacitor/www
+packages/client/src-capacitor/node_modules
+
+# BEX related directories and files
+packages/client/src-bex/www
+packages/client/src-bex/js/core
+
+# Log files
+packages/client/npm-debug.log*
+packages/client/yarn-debug.log*
+packages/client/yarn-error.log*
+
+# Editor directories and files
+packages/client/.idea
+packages/client/*.suo
+packages/client/*.ntvs*
+packages/client/*.njsproj
+packages/client/*.sln
+
+# local .env files
+packages/client/.env.local*
+packages/client/public/google-api-keys.ts
