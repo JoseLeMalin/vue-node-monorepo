@@ -6,8 +6,9 @@ import { YoutubeService } from "./youtube.service";
 export class YoutubeController {
   constructor(private readonly youtubeService: YoutubeService) {}
   @Get()
-  findUserPlaylists(): string {
-    return this.youtubeService.findUserPlaylists();
+  async findUserPlaylists(): Promise<string> {
+    const result = await this.youtubeService.findUserPlaylists();
+    return result;
   }
 
   // @Post()

@@ -10,12 +10,18 @@ exports.AppModule = void 0;
 const common_1 = require("@nestjs/common");
 const app_controller_1 = require("./app.controller");
 const app_service_1 = require("./app.service");
+const youtube_module_1 = require("./youtube/youtube.module");
+const logger_middleware_1 = require("./common/middlewares/logger.middleware");
 let AppModule = exports.AppModule = class AppModule {
+    configure(consumer) {
+        consumer.apply(logger_middleware_1.LoggerMiddleware).forRoutes("youtube");
+    }
 };
 exports.AppModule = AppModule = __decorate([
     (0, common_1.Module)({
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],
+        imports: [youtube_module_1.YoutubeModule],
     })
 ], AppModule);
 //# sourceMappingURL=app.module.js.map
