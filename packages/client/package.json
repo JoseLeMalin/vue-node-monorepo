@@ -6,8 +6,9 @@
   "author": "JoseLeMalin <seb_488@hotmail.fr>",
   "private": true,
   "scripts": {
-    "dev": "quasar dev",
     "build": "quasar build",
+    "start": "quasar dev",
+    "dev": "quasar dev",
     "build:pwa": "quasar build -m pwa",
     "lint": "eslint --ext .js,.ts,.vue ./",
     "format": "prettier --write \"**/*.{js,ts,vue,scss,html,md,json}\" --ignore-path .gitignore",
