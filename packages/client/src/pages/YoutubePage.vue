@@ -1,5 +1,5 @@
 <template>
-  <q-page class="row items-center justify-evenly">
+  <q-page>
     <youtube-screen title="YoutubeScreen"></youtube-screen>
   </q-page>
 </template>
