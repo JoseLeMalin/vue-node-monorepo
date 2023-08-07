@@ -1,26 +1,14 @@
 <template>
   <div class="q-pa-md" style="max-width: 400px">
     <q-form @submit="onSubmit" @reset="onReset" class="q-gutter-md">
-      <q-input
-        filled
-        v-model="channelId"
-        label="Your Channel Id"
-        hint="Youtube Channel ID"
-        lazy-rules
-        :rules="[(val) => (val && val.length > 0) || 'Please type something']"
-      />
+      <q-input filled v-model="channelId" label="Your Channel Id" hint="Youtube Channel ID" lazy-rules
+        :rules="[(val) => (val && val.length > 0) || 'Please type something']" />
 
       <q-toggle v-model="accept" label="I accept the license and terms" />
 
       <div>
         <q-btn label="Submit" type="submit" color="primary" />
-        <q-btn
-          label="Reset"
-          type="reset"
-          color="primary"
-          flat
-          class="q-ml-sm"
-        />
+        <q-btn label="Reset" type="reset" color="primary" flat class="q-ml-sm" />
       </div>
     </q-form>
   </div>
@@ -30,7 +18,7 @@
 import { useQuasar } from "quasar";
 import { ref } from "vue";
 import { youtubeChannelId } from "../../public/constants";
-import { googleAPIKey } from "../../public/google-api-keys";
+import { googleAPIKey } from "../../../common/secrets/secrets-constants";
 
 const handleOnSubmit = async () => {
   const abortController = new AbortController();

@@ -41,3 +41,4 @@ packages/client/*.sln
 # local .env files
 packages/client/.env.local*
 packages/client/public/google-api-keys.ts
+packages/common/secrets/
