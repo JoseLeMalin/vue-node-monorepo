@@ -1,8 +1,7 @@
 node_modules/
 packages/server/dist
-packages/server/dist/app.controller.js.map
-packages/server/dist/app.module.js.map
-packages/client/public/google-api-keys.ts
+packages/server/node_modules
+
 
 packages/client/.DS_Store
 packages/client/.thumbs.db
@@ -41,3 +40,4 @@ packages/client/*.sln
 
 # local .env files
 packages/client/.env.local*
+packages/client/public/google-api-keys.ts
