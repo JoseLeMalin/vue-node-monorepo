@@ -17,13 +17,13 @@
 <script>
 import { useQuasar } from "quasar";
 import { ref } from "vue";
-import { youtubeChannelId, googleAPIKey } from "../../secrets/constants";
+import { youtubeChannelId } from "../../secrets/constants";
 
 
 const handleOnSubmit = async () => {
   const abortController = new AbortController();
   const result = await fetch(
-    `http://localhost:3000/`,
+    `http://localhost:3000/youtube`,
     {
       method: "GET",
       headers: {
@@ -35,7 +35,7 @@ const handleOnSubmit = async () => {
     .then((res) => res.json())
     .then((json) => json)
     .catch((err) => console.log(err));
-
+  console.log("result", result);
   return result;
 };
 
