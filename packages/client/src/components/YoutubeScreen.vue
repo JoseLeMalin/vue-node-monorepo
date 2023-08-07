@@ -17,8 +17,8 @@
 <script>
 import { useQuasar } from "quasar";
 import { ref } from "vue";
-import { youtubeChannelId } from "../../public/constants";
-import { googleAPIKey } from "../../../common/secrets/secrets-constants";
+import { youtubeChannelId, googleAPIKey } from "../../secrets/constants";
+
 
 const handleOnSubmit = async () => {
   const abortController = new AbortController();
