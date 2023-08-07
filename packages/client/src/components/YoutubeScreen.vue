@@ -23,7 +23,7 @@ import { youtubeChannelId, googleAPIKey } from "../../secrets/constants";
 const handleOnSubmit = async () => {
   const abortController = new AbortController();
   const result = await fetch(
-    `https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&id=${youtubeChannelId}&key=${googleAPIKey}`,
+    `http://localhost:3000/`,
     {
       method: "GET",
       headers: {
