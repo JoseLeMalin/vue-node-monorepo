@@ -78,10 +78,10 @@ const linksList = [
     link: "https://awesome.quasar.dev",
   },
   {
-    title: "Youtube Page",
-    caption: "Youtube Page",
+    title: "Api Testing Page",
+    caption: "Api Testing Page",
     icon: "favorite",
-    link: "/#/youtube",
+    link: "/#/apitesting",
   },
 ];
 

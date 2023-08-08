@@ -1,5 +1,9 @@
 <template>
-  <div class="fit row inline wrap justify-center items-center content-start">
+  <div>
+    <q-field rounded filled stack-label>
+      <template v-slot:control>
+        <div class="self-center full-width no-outline" tabindex="0">Youtube get Playlist from channel ID</div>
+      </template></q-field>
     <q-form @submit="onSubmit" @reset="onReset" class="q-gutter-md">
       <q-input filled v-model="channelId" label="Your Channel Id" hint="Youtube Channel ID" lazy-rules
         :rules="[(val) => (val && val.length > 0) || 'Please type something']" />
@@ -7,80 +11,14 @@
       <q-toggle v-model="accept" label="I accept the license and terms" />
 
       <div>
-        <q-btn label="Submit" type="submit" color="primary" />
-        <q-btn label="Reset" type="reset" color="primary" flat class="q-ml-sm" />
-      </div>
-    </q-form>
-    <q-form class="q-gutter-md" style="overflow: auto">
-      <q-input filled v-model="channelId" label="Your Channel Id" hint="Youtube Channel ID" lazy-rules
-        :rules="[(val) => (val && val.length > 0) || 'Please type something']" />
-
-      <q-toggle v-model="accept" label="I accept the license and terms" />
-
-      <div>
-        <q-btn label="Submit" type="submit" color="primary" />
-        <q-btn label="Reset" type="reset" color="primary" flat class="q-ml-sm" />
-      </div>
-    </q-form>
-    <q-form class="q-gutter-md" style="overflow: auto">
-      <q-input filled v-model="channelId" label="Your Channel Id" hint="Youtube Channel ID" lazy-rules
-        :rules="[(val) => (val && val.length > 0) || 'Please type something']" />
-
-      <q-toggle v-model="accept" label="I accept the license and terms" />
-
-      <div>
-        <q-btn label="Submit" type="submit" color="primary" />
-        <q-btn label="Reset" type="reset" color="primary" flat class="q-ml-sm" />
-      </div>
-    </q-form>
-    <q-form class="q-gutter-md" style="overflow: auto">
-      <q-input filled v-model="channelId" label="Your Channel Id" hint="Youtube Channel ID" lazy-rules
-        :rules="[(val) => (val && val.length > 0) || 'Please type something']" />
-
-      <q-toggle v-model="accept" label="I accept the license and terms" />
-
-      <div>
-        <q-btn label="Submit" type="submit" color="primary" />
-        <q-btn label="Reset" type="reset" color="primary" flat class="q-ml-sm" />
-      </div>
-    </q-form>
-    <q-form class="q-gutter-md" style="overflow: auto">
-      <q-input filled v-model="channelId" label="Your Channel Id" hint="Youtube Channel ID" lazy-rules
-        :rules="[(val) => (val && val.length > 0) || 'Please type something']" />
-
-      <q-toggle v-model="accept" label="I accept the license and terms" />
-
-      <div>
-        <q-btn label="Submit" type="submit" color="primary" />
-        <q-btn label="Reset" type="reset" color="primary" flat class="q-ml-sm" />
-      </div>
-    </q-form>
-    <q-form class="q-gutter-md" style="overflow: auto">
-      <q-input filled v-model="channelId" label="Your Channel Id" hint="Youtube Channel ID" lazy-rules
-        :rules="[(val) => (val && val.length > 0) || 'Please type something']" />
-
-      <q-toggle v-model="accept" label="I accept the license and terms" />
-
-      <div>
-        <q-btn label="Submit" type="submit" color="primary" />
-        <q-btn label="Reset" type="reset" color="primary" flat class="q-ml-sm" />
-      </div>
-    </q-form>
-    <q-form class="q-gutter-md" style="overflow: auto">
-      <q-input filled v-model="channelId" label="Your Channel Id" hint="Youtube Channel ID" lazy-rules
-        :rules="[(val) => (val && val.length > 0) || 'Please type something']" />
-
-      <q-toggle v-model="accept" label="I accept the license and terms" />
-
-      <div>
-        <q-btn label="Submit" type="submit" color="primary" />
+        <q-btn label="Submit" type="submit" color="secondary" />
         <q-btn label="Reset" type="reset" color="primary" flat class="q-ml-sm" />
       </div>
     </q-form>
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import { useQuasar } from "quasar";
 import { ref } from "vue";
 import { youtubeChannelId } from "../../secrets/constants";
@@ -110,7 +48,7 @@ export default {
     const $q = useQuasar();
     const channelId = ref(youtubeChannelId);
     const accept = ref(true);
-
+    const text = ref("")
     return {
       channelId,
       accept,
@@ -134,7 +72,7 @@ export default {
       },
 
       onReset() {
-        channelId.value = null;
+        channelId.value = "";
         accept.value = false;
       },
     };
