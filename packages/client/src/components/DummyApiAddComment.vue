@@ -6,7 +6,7 @@
             </template>
         </q-field>
         <q-form @submit="onSubmit" @reset="onReset" class="q-gutter-md">
-            <q-input filled v-model="channelId" label="Your Channel Id" hint="Youtube Channel ID" lazy-rules
+            <q-input filled v-model="product" label="Your Channel Id" hint="Youtube Channel ID" lazy-rules
                 :rules="[(val) => (val && val.length > 0) || 'Please type something']" />
 
             <q-toggle v-model="accept" label="I accept the license and terms" />
@@ -21,40 +21,42 @@
   
 <script lang="ts">
 import { useQuasar } from "quasar";
-import { ref } from "vue";
-import { youtubeChannelId } from "../../secrets/constants";
+import { ref, defineComponent } from "vue";
+// import { youtubeChannelId } from "../../secrets/constants";
 
 
-const handleOnSubmit = async () => {
-    const abortController = new AbortController();
-    const result = fetch(
-        `http://localhost:3000/youtube/${youtubeChannelId}`,
-        {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            signal: abortController.signal,
-        }
-    )
-        .then((res) => res.json())
-        .then((json) => json)
+const handleOnSubmit = async (title: string) => {
+
+    const result = await fetch('http://localhost:3000/dummyjson/comments', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            body: title,
+            postId: 2,
+            userId: 2,
+            /* other product data */
+        })
+    })
+        .then(res => res.json())
+        .then(console.log)
         .catch((err) => console.log(err));
     console.log("result", result);
     return result;
 };
 
-export default {
+export default defineComponent({
+    name: "DummyApiAddComment",
+    components: {},
     setup() {
         const $q = useQuasar();
-        const channelId = ref(youtubeChannelId);
+        const product = ref("Un produit LOUL");
         const accept = ref(true);
 
         return {
-            channelId,
+            product,
             accept,
 
-            onSubmit() {
+            async onSubmit() {
                 if (accept.value !== true) {
                     $q.notify({
                         color: "red-5",
@@ -63,21 +65,24 @@ export default {
                         message: "You need to accept the license and terms first",
                     });
                 } else {
-                    handleOnSubmit();
+                    await handleOnSubmit(product.value);
+
                     $q.notify({
-                        message: "Playlist received",
+                        message: "You've added the product",
                         caption: "Just now",
                         color: "secondary",
+                        position: "left",
                     });
+
                 }
             },
 
             onReset() {
-                channelId.value = "";
+                product.value = "";
                 accept.value = false;
             },
         };
     },
-};
+});
 </script>
   
