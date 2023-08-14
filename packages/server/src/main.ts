@@ -5,6 +5,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule, { cors: true });
   //Global guards are used across the whole application, for every controller and every route handler
   // app.useGlobalGuards(new RolesGuard());
+
   await app.listen(3000);
   console.log("localhost:3000/");
 }

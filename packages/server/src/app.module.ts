@@ -9,11 +9,19 @@ import { DummyjsonService } from "./dummyjson/dummyjson.service";
 import { DummyjsonModule } from "./dummyjson/dummyjson.module";
 import { AuthModule } from "./auth/auth.module";
 import { UsersModule } from "./users/users.module";
+import { DatabaseModule } from "./database/database.module";
+import { AppProviders } from "./app.providers";
 
 @Module({
   controllers: [AppController, DummyjsonController],
-  providers: [AppService, DummyjsonService],
-  imports: [YoutubeModule, DummyjsonModule, AuthModule, UsersModule],
+  providers: [AppService, DummyjsonService, ...AppProviders],
+  imports: [
+    YoutubeModule,
+    DummyjsonModule,
+    AuthModule,
+    UsersModule,
+    DatabaseModule,
+  ],
 })
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
