@@ -1,5 +1,10 @@
-import { Injectable } from "@nestjs/common";
-import { CommentContent } from "src/data-transfer-objects/dummyjson-dto";
+import {
+  HttpException,
+  Injectable,
+  UnauthorizedException,
+} from "@nestjs/common";
+import { CommentCreateSchema } from "./dummyjson.zod";
+// import { CommentCreateSchema } from "./../../../common/src/comment.zodscheme";
 
 @Injectable()
 export class DummyjsonService {
@@ -19,7 +24,7 @@ export class DummyjsonService {
 
   async createCommment<T>(newComment: T) {
     const abortController = new AbortController();
-    return fetch("https://dummyjson.com/comments/add", {
+    const result = await fetch("https://dummyjson.com/comments/add", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -30,5 +35,13 @@ export class DummyjsonService {
       .then((res) => res.json())
       .then((json) => json)
       .catch((err) => console.log(err));
+    try {
+      return CommentCreateSchema.parse(result);
+    } catch (error) {
+      throw new HttpException(
+        "The response from DummyJSON doesn't match the expecting scheme",
+        501,
+      );
+    }
   }
 }

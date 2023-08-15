@@ -70,6 +70,12 @@ importers:
         specifier: ^4.9.5
         version: 4.9.5
 
+  packages/common:
+    dependencies:
+      zod:
+        specifier: ^3.22.0
+        version: 3.22.0
+
   packages/server:
     dependencies:
       '@nestjs/common':
@@ -105,6 +111,9 @@ importers:
       rxjs:
         specifier: ^7.8.1
         version: 7.8.1
+      zod:
+        specifier: ^3.22.0
+        version: 3.22.0
     devDependencies:
       '@nestjs/cli':
         specifier: ^10.0.0
@@ -9238,3 +9247,7 @@ packages:
       compress-commons: 4.1.1
       readable-stream: 3.6.2
     dev: true
+
+  /zod@3.22.0:
+    resolution: {integrity: sha512-y5KZY/ssf5n7hCGDGGtcJO/EBJEm5Pa+QQvFBeyMOtnFYOSflalxIFFvdaYevPhePcmcKC4aTbFkCcXN7D0O8Q==}
+    dev: false

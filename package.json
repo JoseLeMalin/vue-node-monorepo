@@ -1,7 +1,12 @@
 {
   "name": "root",
+  "author": "JoseLeMalin <seb_488@hotmail.fr>",
   "private": true,
   "scripts": {
+    "build": "pnpm run build:common && pnpm run build:client && pnpm run build:server",
+    "build:common": "cd packages/common && pnpm run build",
+    "build:client": "cd packages/client && pnpm run build",
+    "build:server": "cd packages/server && pnpm run build",
     "lint": "eslint --ext .js,.ts,.vue ./",
     "format": "prettier --write \"**/*.{js,ts,vue,scss,html,md,json}\" --ignore-path .gitignore"
   },

@@ -1,6 +1,8 @@
 node_modules/
 packages/server/dist
 packages/server/node_modules
+packages/common/dist
+packages/common/node_modules
 
 
 packages/client/.DS_Store

@@ -3,21 +3,20 @@ import {
   Get,
   Post,
   ParseIntPipe,
-  Injectable,
   Param,
   UsePipes,
   UseGuards,
   Body,
-  SetMetadata,
 } from "@nestjs/common";
 import { DummyjsonService } from "./dummyjson.service";
-import { ObjectSchema } from "joi";
 import { JoiValidationPipe, createCommentSchema } from "./schema-validation";
 import { CommentContent } from "src/data-transfer-objects/dummyjson-dto";
 import {
   AuthGuardDummyJson,
   DummyJsonRoles,
 } from "src/authorizations/dummyjsonGuard";
+import { CommentCreate } from "./dummyjson.zod";
+// import { CommentCreate } from "./../../../common/src/comment.zodscheme";
 
 @Controller("dummyjson")
 @UseGuards(AuthGuardDummyJson)
@@ -34,7 +33,9 @@ export class DummyjsonController {
   // Comments
   @Post("/comments")
   @UsePipes(new JoiValidationPipe(createCommentSchema))
-  async createComment(@Body() newComment: CommentContent): Promise<string> {
+  async createComment(
+    @Body() newComment: CommentContent,
+  ): Promise<CommentCreate> {
     const result = await this.dummyjsonService.createCommment<CommentContent>(
       newComment,
     );
