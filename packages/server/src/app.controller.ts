@@ -1,11 +1,4 @@
-import {
-  Body,
-  Controller,
-  Get,
-  HttpCode,
-  Post,
-  Redirect,
-} from "@nestjs/common";
+import { Body, Controller, Get, HttpCode, Post } from "@nestjs/common";
 import { AppService } from "./app.service";
 import { CreateCatDto } from "./data-transfer-objects/test-SHE-dto";
 

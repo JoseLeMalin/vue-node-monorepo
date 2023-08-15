@@ -8,8 +8,8 @@ const routes: RouteRecordRaw[] = [
       { path: "", component: () => import("pages/IndexPage.vue") },
 
       {
-        path: "youtube",
-        component: () => import("pages/YoutubePage.vue"),
+        path: "apitesting",
+        component: () => import("pages/ApiTestingPage.vue"),
       },
     ],
   },

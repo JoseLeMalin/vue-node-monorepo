@@ -1,12 +1,12 @@
 import { Controller, Get, Post } from "@nestjs/common";
-import { CreateCatDto } from "src/data-transfer-objects/test-SHE-dto";
 import { YoutubeService } from "./youtube.service";
 
 @Controller("youtube")
 export class YoutubeController {
   constructor(private readonly youtubeService: YoutubeService) {}
-  @Get()
+  @Get(":channelId")
   async findUserPlaylists(): Promise<string> {
+    console.log("in findUserPlaylists handler");
     const result = await this.youtubeService.findUserPlaylists();
     return result;
   }
