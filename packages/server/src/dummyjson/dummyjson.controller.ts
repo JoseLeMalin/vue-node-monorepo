@@ -15,8 +15,8 @@ import {
   AuthGuardDummyJson,
   DummyJsonRoles,
 } from "../authorizations/dummyjsonGuard";
-import { CommentCreate } from "./dummyjson.zod";
-// import { CommentCreate } from "./../../../common/src/comment.zodscheme";
+// import { CommentCreate } from "./dummyjson.zod";
+import { CommentCreate } from "@jlm/common";
 
 @Controller("dummyjson")
 @UseGuards(AuthGuardDummyJson)

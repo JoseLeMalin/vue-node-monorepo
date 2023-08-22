@@ -1,10 +1,6 @@
-import {
-  HttpException,
-  Injectable,
-  UnauthorizedException,
-} from "@nestjs/common";
-import { CommentCreateSchema } from "./dummyjson.zod";
-// import { CommentCreateSchema } from "./../../../common/src/comment.zodscheme";
+import { HttpException, Injectable } from "@nestjs/common";
+// import { CommentCreateSchema } from "./dummyjson.zod";
+import { CommentCreateSchema } from "@jlm/common";
 
 @Injectable()
 export class DummyjsonService {
