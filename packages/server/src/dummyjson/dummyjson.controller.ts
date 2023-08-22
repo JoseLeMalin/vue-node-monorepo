@@ -10,11 +10,11 @@ import {
 } from "@nestjs/common";
 import { DummyjsonService } from "./dummyjson.service";
 import { JoiValidationPipe, createCommentSchema } from "./schema-validation";
-import { CommentContent } from "src/data-transfer-objects/dummyjson-dto";
+import { CommentContent } from "./../data-transfer-objects/dummyjson-dto";
 import {
   AuthGuardDummyJson,
   DummyJsonRoles,
-} from "src/authorizations/dummyjsonGuard";
+} from "../authorizations/dummyjsonGuard";
 import { CommentCreate } from "./dummyjson.zod";
 // import { CommentCreate } from "./../../../common/src/comment.zodscheme";
 

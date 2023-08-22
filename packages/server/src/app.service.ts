@@ -1,6 +1,6 @@
 import { Injectable, Inject } from "@nestjs/common";
 import { CreateCatDto } from "./data-transfer-objects/test-SHE-dto";
-import { useFactoryProviders } from "src/types/providers.types";
+import { useFactoryProviders } from "./types/providers.types";
 
 @Injectable()
 export class AppService {

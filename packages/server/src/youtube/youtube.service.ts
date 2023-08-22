@@ -5,7 +5,7 @@ import {
   NestMiddleware,
 } from "@nestjs/common";
 import { googleAPIKey, youtubeChannelId } from "../../secrets/constants";
-import { YoutubePlaylist } from "src/data-transfer-objects/youtube";
+import { YoutubePlaylist } from "./../data-transfer-objects/youtube";
 import { ForbiddenException } from "../common/errors/error-class";
 const youtubeGApiUrl = "https://youtube.googleapis.com/youtube/v3";
 @Injectable()
