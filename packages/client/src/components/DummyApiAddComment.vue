@@ -8,26 +8,14 @@
       </template>
     </q-field>
     <q-form @submit="onSubmit" @reset="onReset" class="q-gutter-md">
-      <q-input
-        filled
-        v-model="product"
-        label="DummyJSON: POST /comment"
-        hint="DummyJSON api POST comment"
-        lazy-rules
-        :rules="[(val) => (val && val.length > 0) || 'Please type something']"
-      />
+      <q-input filled v-model="product" label="DummyJSON: POST /comment" hint="DummyJSON api POST comment" lazy-rules
+        :rules="[(val) => (val && val.length > 0) || 'Please type something']" />
 
       <q-toggle v-model="accept" label="I accept the license and terms" />
 
       <div>
         <q-btn label="Submit" type="submit" color="secondary" />
-        <q-btn
-          label="Reset"
-          type="reset"
-          color="primary"
-          flat
-          class="q-ml-sm"
-        />
+        <q-btn label="Reset" type="reset" color="primary" flat class="q-ml-sm" />
       </div>
     </q-form>
   </div>
@@ -36,8 +24,8 @@
 <script lang="ts">
 import { useQuasar } from "quasar";
 import { ref, defineComponent } from "vue";
-// import { CommentCreateSchema } from "./../../../server/src/dummyjson/dummyjson.zod";
-import { CommentCreate, CommentCreateSchema } from "@jlm/common";
+import { CommentCreateSchema } from "./../../../server/src/dummyjson/dummyjson.zod";
+// import { CommentCreateSchema } from "@jlm/common";
 
 const handleOnSubmit = async (title: string) => {
   const result = await fetch("http://localhost:3000/dummyjson/comments", {
@@ -87,7 +75,7 @@ export default defineComponent({
             await handleOnSubmit(product.value);
 
             $q.notify({
-              message: "You've added the product",
+              message: "You've added the comment",
               caption: "Just now",
               color: "secondary",
               position: "left",

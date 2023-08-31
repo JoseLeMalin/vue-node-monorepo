@@ -32,6 +32,8 @@ export class DummyjsonService {
       .then((json) => json)
       .catch((err) => console.log(err));
     try {
+      console.log("result", result);
+
       return CommentCreateSchema.parse(result);
     } catch (error) {
       throw new HttpException(

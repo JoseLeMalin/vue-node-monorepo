@@ -1,3 +1,4 @@
 /* eslint-env es6 */
 /* eslint-disable */
-export { CommentCreate, CommentCreateSchema } from "./comment.zodscheme";
+export { CommentCreate } from "./comment.zodscheme";
+export { CommentCreateSchema } from "./comment.zodscheme";

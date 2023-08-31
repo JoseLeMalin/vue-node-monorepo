@@ -1,13 +1,13 @@
 import { z } from "zod";
 
 export const CommentCreateSchema = z.object({
-  idqsdqsd: z.number(),
+  id: z.number(),
   body: z.string(),
   postId: z.number(),
-  // user: z.object({
-  //   id: z.number(),
-  //   username: z.string(),
-  // }),
+  user: z.object({
+    id: z.number(),
+    username: z.string(),
+  }),
   title: z.string().optional(),
   //idqsdqsd: z.number(),
   //titleqdqsd: z.string(),
