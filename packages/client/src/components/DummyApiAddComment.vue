@@ -1,7 +1,8 @@
+/*eslint-env es6*/
 <template>
   <div>
     <q-field rounded filled stack-label>
-      <template v-slot:control>
+      <template #control>
         <div class="self-center full-width no-outline" tabindex="0">
           DummyJSON: POST /comment
         </div>
@@ -45,7 +46,7 @@ const handleOnSubmit = async (title: string) => {
     return CommentCreateSchema.parse(result);
   } catch (error) {
     throw new Error(
-      "The response from DummyJSON doesn't match the expecting scheme"
+      "The response from DummyJSON doesn't match the expecting scheme",
     );
   }
 };

@@ -88,7 +88,7 @@ module.exports = configure(function (/* ctx */) {
             include: path.resolve(__dirname, "./src/i18n/**"),
           },
         ],
-        // ["@rollup/plugin-commonjs", {}],
+        ["@rollup/plugin-commonjs", {}],
       ],
     },
 

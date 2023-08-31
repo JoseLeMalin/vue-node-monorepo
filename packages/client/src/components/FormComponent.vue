@@ -1,7 +1,7 @@
 <template>
   <div>
     <q-field rounded filled stack-label>
-      <template v-slot:control>
+      <template #control>
         <div class="self-center full-width no-outline" tabindex="0">
           Add new product to dummyjson.com
         </div>
@@ -9,33 +9,22 @@
     </q-field>
     <q-form @submit="onSubmit" @reset="onReset" class="q-gutter-md">
       <q-input
-        filled
-        v-model="product"
-        label="Product to add"
-        lazy-rules
-        :rules="[(val) => (val && val.length > 0) || 'Please type something']"
-      />
+filled v-model="product" label="Product to add" lazy-rules
+        :rules="[(val) => (val && val.length > 0) || 'Please type something']" />
 
       <q-toggle v-model="accept" label="I accept the license and terms" />
 
       <div>
         <q-btn label="Submit" type="submit" color="secondary" />
-        <q-btn
-          label="Reset"
-          type="reset"
-          color="primary"
-          flat
-          class="q-ml-sm"
-        />
+        <q-btn label="Reset" type="reset" color="primary" flat class="q-ml-sm" />
       </div>
     </q-form>
   </div>
 </template>
 
 <script lang="ts">
-import { Http2ServerRequest } from "http2";
 import { useQuasar } from "quasar";
-import { defineComponent, PropType, computed, ref, toRef, Ref } from "vue";
+import { defineComponent, PropType, ref } from "vue";
 // import { youtubeChannelId } from "../../secrets/constants";
 
 const handleOnSubmit = async (title: string): Promise<string> => {

@@ -1,7 +1,7 @@
 <template>
   <div>
     <q-field rounded filled stack-label>
-      <template v-slot:control>
+      <template #control>
         <div class="self-center full-width no-outline" tabindex="0">
           Youtube get Playlist from channel ID
         </div>
